@@ -1,0 +1,13 @@
+@import 'libs/normalize.scss';
+
+@import 'base/animations';
+@import 'base/mixins';
+@import 'base/variables';
+
+.container {
+    max-width: 1560px;
+    margin: 0 auto;
+}
+
+@import 'blocks/promo';
+@import 'blocks/header';
