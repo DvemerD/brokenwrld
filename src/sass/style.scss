@@ -9,6 +9,10 @@ html {
     font-family: 'Ruberoid', sans-serif;
 }
 
+body {
+    background: #000;
+}
+
 .container {
     max-width: 1270px;
     margin: 0 auto;
@@ -18,3 +22,5 @@ html {
 @import 'blocks/header';
 @import 'blocks/button';
 @import 'blocks/title';
+@import 'blocks/packs';
+@import 'blocks/pack';

@@ -4,14 +4,32 @@
     background: #ffe600;
     border-radius: 50px;
     border: none;
-    font-style: normal;
     font-weight: 600;
     font-size: 18px;
     color: #000;
     cursor: pointer;
-    transition: all .4s;
+    transition: all 0.4s;
     &:hover {
         background: #000;
         color: #ffe600;
+    }
+}
+
+.button-pack {
+    border-radius: 0;
+    border-top-right-radius: 50px;
+    padding: 15px 30px;
+    text-align: left;
+    span {
+        position: relative;
+    }
+    span:before {
+        content: url(../icons/arrow-right.svg);
+        position: absolute;
+        margin-left: 5px;
+        width: 18px;
+        height: 14px;
+        top: 50%;
+        transform: translateY(-80%);
     }
 }

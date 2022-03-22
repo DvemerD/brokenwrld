@@ -5,3 +5,23 @@
     line-height: 70px;
     color: #fff;
 }
+
+.title-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.title_section {
+    display: block;
+}
+
+.title-line {
+    flex: auto;
+    margin: 15px 0 0 25px;
+    top: 50%;
+    background: #fff;
+    padding-left: 15px;
+    opacity: 0.1;
+    height: 1px;
+    max-width: 100%;
+}
