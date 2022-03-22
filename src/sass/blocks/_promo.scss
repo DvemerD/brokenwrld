@@ -1,0 +1,43 @@
+.promo {
+    // height: 100vh;
+    padding: 20px 0 60px;
+    background: url(../img/promo_bgr.jpg) center (center/cover) no-repeat;
+    &__logo {
+        width: 200px;
+        height: 145px;
+        margin-top: 200px;
+    }
+    &__descr {
+        max-width: 560px;
+    }
+    &__line {
+        width: 20px;
+        height: 2px;
+        background: #ffe500;
+        border: none;
+        margin: 50px 0 0;
+    }
+    &__subtitle {
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 32px;
+        color: #fff;
+        margin-top: 30px;
+    }
+    &__arrow {
+        display: flex;
+        align-items: center;
+        margin-top: 165px;
+        cursor: pointer;
+        .arrow {
+            margin-right: 15px;
+        }
+    }
+    &__arrow-text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 30px;
+        color: #fff;
+        opacity: .5;
+    }
+}
