@@ -1,0 +1,63 @@
+.history {
+    padding: 200px 0 50px;
+    background: url(../img/history_bgr.jpg) center (center/cover) no-repeat;
+    &__wrapper {
+        display: flex;
+        margin-top: 50px;
+    }
+    &__img {
+        width: 750px;
+        height: 750px;
+        margin-left: -130px;
+    }
+    &__frame {
+        position: relative;
+        width: 615px;
+        height: 620px;
+        &::before {
+            content: " ";
+            position: absolute;
+            width: 100%;
+            height: 70px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+            mix-blend-mode: normal;
+            transform: matrix(1, 0, 0, -1, 0, 0);
+        }
+        &::after {
+            content: " ";
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+            mix-blend-mode: normal;
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+        }
+    }
+    &__descr {
+        padding: 45px 0 100px;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+    &__paragh {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 40px;
+        color: #ffffff;
+        list-style-type: none;
+        &:before {
+            content: " ";
+            display: inline-block;
+            vertical-align: middle;
+            width: 20px;
+            height: 2px;
+            background: #ffe500;
+            margin-right: 100px;
+        }
+    }
+}

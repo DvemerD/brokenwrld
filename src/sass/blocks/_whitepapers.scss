@@ -1,0 +1,31 @@
+.whitepapers {
+    min-height: 220px;
+    background: url(../img/whitepapers_bgr.jpg) center (center/cover) no-repeat;
+    padding: 15px 0 40px;
+    overflow: hidden;
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        
+    }
+    &__line {
+        width: 130px;
+        height: 2px;
+        background: #ffe500;
+    }
+    &__text {
+        max-width: 450px;
+        margin: 15px 40px 0 0;
+    }
+    &__subtitle {
+        margin-top: 15px;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 32px;
+        color: #fff;
+    }
+    &__img {
+        margin-bottom: -245px; 
+        width: 200px;   
+    }
+}
