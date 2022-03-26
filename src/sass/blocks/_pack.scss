@@ -17,11 +17,21 @@
         text-align: center;
     }
     &__line {
-        width: 20px;
-        height: 2px;
-        background: #ffe500;
+        position: relative;
         border: none;
         margin: 27px auto 0;
+        width: 100%;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        &::before {
+            content: " ";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: #ffe500;
+        }
     }
     &__text {
         display: flex;
@@ -40,7 +50,6 @@
         font-weight: 400;
         font-size: 24px;
         line-height: 70px;
-        color: #fff;   
+        color: #fff;
     }
-
 }

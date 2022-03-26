@@ -1,0 +1,32 @@
+.footer {
+    padding: 45px 0 65px;
+    &__line {
+        border: none;
+        height: 1px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+    }
+    &__wrapper {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__contact {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 30px;
+        color: #ffffff;
+        > address {
+            font-style: normal;
+        }
+    }
+    &__link {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 40px;
+        color: #ffffff;
+        &:nth-child(1) {
+            margin-right: 40px;
+        }
+    }
+}
