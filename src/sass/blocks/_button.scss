@@ -16,7 +16,7 @@
         background: #000;
         color: #ffe600;
         path {
-            fill: #ffe600; 
+            fill: #ffe600;
             transition: fill 0.4s;
         }
     }
@@ -36,5 +36,59 @@
     svg {
         margin-right: 0;
         margin-left: 5px;
+    }
+}
+
+.hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: #fff;
+    margin-left: 15px;
+    &__wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        > div {
+            height: 2px;
+            margin: 2px 0;
+            background: #000;
+            width: 22px;
+            border-radius: 30px;
+            &:nth-of-type(2) {
+                width: 14px;
+                margin-left: 7.5px;
+            }
+            &:nth-of-type(3) {
+                width: 14px;
+                margin-right: 7.5px;
+            }
+        }
+    }
+}
+
+.hamburger-active {
+    background: #ffe500;
+    .hamburger__wrapper {
+        position: relative;
+        > div {
+            position: absolute;
+            margin: 0;
+            width: 25px;
+            transition: 0.5s all;
+            &:nth-of-type(1) {
+                transform: rotate(-45deg);
+            }
+            &:nth-of-type(2) {
+                display: none;
+            }
+            &:nth-of-type(3) {
+                transform: rotate(45deg);
+            }
+        }
     }
 }
