@@ -1,11 +1,14 @@
 .pack {
     padding: 60px 30px 0;
-    width: 570px;
+    max-width: 570px;
     background: #000;
+    &:first-of-type {
+        margin-right: 20px;
+    }
     &__img {
         display: block;
-        width: 420px;
-        height: 360px;
+        width: 100%;
+        max-width: 420px;
         margin: 0 auto;
     }
     &__name {
