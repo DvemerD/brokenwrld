@@ -6,7 +6,11 @@
     &__wrapper {
         display: flex;
         align-items: center;
-        
+        justify-content: center;
+    }
+    &__content {
+        display: flex;
+        align-items: center;
     }
     &__line {
         width: 130px;
