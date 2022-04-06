@@ -1,25 +1,48 @@
 .road-map {
     background: url(../img/road-map_bgr.jpg) center (center/cover) no-repeat;
+    &__title {
+        font-weight: 700;
+        font-size: 32px;
+        color: #fff;
+        margin: 35px 0 0;
+    }
+    &__wrapper {
+        position: relative;
+    }
     &__line {
         position: absolute;
         width: 100%;
         border-bottom: 1px dashed #fff;
         opacity: 0.2;
-        top: 57%;
+        top: 50%;
+        transform: translateY(-50%);
     }
-    &__title {
-        font-weight: 700;
-        font-size: 32px;
-        color: #fff;
-        margin: 105px 0 0;
-    }
-    &__wrapper {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
+    &__inner {
+        margin-top: 80px;
+        display: grid;
+        row-gap: 100px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            ". q1 . q2"
+            "q3 . q4 .";
+        
     }
     &__item {
         position: relative;
+        padding-left: 85px;
+        &_q1 {
+            grid-area: q1;
+        }
+        &_q2 {
+            grid-area: q2;
+        }
+        &_q3 {
+            grid-area: q3;
+        }
+        &_q4 {
+            grid-area: q4;
+        }
         .circle__wrapper {
             position: absolute;
             display: flex;
@@ -50,18 +73,19 @@
             background: #ffe500;
             border-radius: 100%;
         }
-        &:nth-child(even) {
-            margin-top: 400px;
+        &:nth-child(1), &:nth-child(2) {
             .circle__wrapper {
-                bottom: auto;
-                &::before {
-                    top: auto;
-                    bottom: -40px;
-                }
+                bottom: -70px;
             }
         }
-        &:nth-child(2) {
-            padding-left: 80px;
+        &:nth-child(3), &:nth-child(4) {
+            .circle__wrapper {
+                top: -70px;
+                &::before {
+                    top: auto;
+                    bottom: -40px;  
+                } 
+            }  
         }
     }
     &__list {
