@@ -1,4 +1,4 @@
-import { disableScroll, enableScroll } from "../helpers.js";
+import { disableScroll, enableScroll } from "../modules/helpers.js";
 
 function preloader(tl) {
   const bar = document.getElementById("progress-confirm"),

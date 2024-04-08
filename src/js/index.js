@@ -1,11 +1,12 @@
 import header from "./blocks/header.js";
 import history from "./blocks/history.js";
-import hamburger from "./blocks/humburger.js";
+import hamburger from "./blocks/hamburger.js";
 import packs from "./blocks/packs.js";
 import preloader from "./blocks/preloader.js";
 import promo from "./blocks/promo.js";
 import roadmap from "./blocks/roadmap.js";
 import whitepapers from "./blocks/whitepapers.js";
+import scrollToAnchor from "./modules/scrollToAnchor.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   const screenWidth = window.innerWidth;
@@ -28,4 +29,5 @@ window.addEventListener("DOMContentLoaded", () => {
 
   preloader(tl);
   hamburger();
+  scrollToAnchor();
 });

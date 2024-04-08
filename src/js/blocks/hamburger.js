@@ -1,10 +1,11 @@
-import { disableScroll, enableScroll } from "../helpers.js";
+import { disableScroll, enableScroll } from "../modules/helpers.js";
 
 function hamburger() {
   const hamburgerBtn = document.querySelector(".hamburger"),
     overlay = document.querySelector(".overlay"),
     overlayBgr = document.querySelector(".overlay__bgr"),
-    menu = document.querySelector(".header__navigation");
+    menu = document.querySelector(".header__navigation"),
+    menuLink = document.querySelectorAll(".header__menu-link");
 
   hamburgerBtn.addEventListener("click", () => {
     hamburgerBtn.classList.toggle("hamburger_active");
@@ -17,6 +18,17 @@ function hamburger() {
     } else {
       enableScroll();
     }
+  });
+
+  menuLink.forEach((item) => {
+    item.addEventListener("click", () => {
+      hamburgerBtn.classList.remove("hamburger_active");
+      overlay.classList.remove("overlay_active");
+      overlayBgr.classList.remove("overlay__bgr_active");
+      menu.classList.remove("header__navigation_active");
+
+      enableScroll();
+    });
   });
 }
 
