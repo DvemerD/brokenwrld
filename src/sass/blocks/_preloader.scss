@@ -1,0 +1,109 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: url(../img/preloader_bg.jpg) center (center/cover) no-repeat;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px 15px 80px;
+
+  &__img {
+    max-height: 550px;
+    max-width: 550px;
+    width: 100%;
+  }
+
+  &_hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-width: 1400px;
+    width: 100%;
+  }
+
+  .percent {
+    font-family: 'Ruberoid';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+
+  .progress-confirm {
+    position: absolute;
+    background-color: #FFE500;
+    width: 0%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .progress {
+    position: relative;
+    overflow: hidden;
+    margin-top: 2em;
+    height: 30px;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+  .progress-bar {
+    height: 100%;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .progress-bar-striped,
+  .progress-striped .progress-bar {
+    background-image: linear-gradient(45deg,
+        #C4C4C4 25%,
+        transparent 0,
+        transparent 50%,
+        #C4C4C4 0,
+        #C4C4C4 75%,
+        transparent 0,
+        transparent);
+    background-size: 40px 40px;
+  }
+
+  .progress-bar.active,
+  .progress.active .progress-bar {
+    -webkit-animation: f 2s linear infinite;
+    animation: f 2s linear infinite;
+  }
+
+  .progress-bar-info {
+    background-color: #FFFFFF;
+    opacity: .2;
+  }
+
+  @-webkit-keyframes f {
+    0% {
+      background-position: 40px 0;
+    }
+
+    to {
+      background-position: 0 0;
+    }
+  }
+
+  @keyframes f {
+    0% {
+      background-position: 40px 0;
+    }
+
+    to {
+      background-position: 0 0;
+    }
+  }
+}

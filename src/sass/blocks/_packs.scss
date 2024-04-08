@@ -1,9 +1,26 @@
 .packs {
     padding: 145px 0 240px;
     background: url(../img/packs_bgr.jpg) center (center/cover) no-repeat;
+
     &__wrapper {
         margin-top: 100px;
         display: flex;
         justify-content: space-between;
+    }
+}
+
+@media (max-width: 992px) {
+    .packs {
+        &__wrapper {
+            margin-top: 35px;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .packs {
+        padding: 100px 0;
     }
 }

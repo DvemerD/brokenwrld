@@ -5,16 +5,22 @@
 @import 'base/mixins';
 @import 'base/variables';
 
-*{
+* {
     box-sizing: border-box;
 }
 
 html {
     font-family: 'Ruberoid', sans-serif;
+    font-size: 16px;
 }
 
 body {
+    position: relative;
     background: #000;
+}
+
+.wrapp {
+    visibility: hidden;
 }
 
 .container {
@@ -34,11 +40,24 @@ body {
     }
 }
 
+.splitting .char {
+    animation: slide-in .7s cubic-bezier(.3, 0, .7, 1) both;
+    animation-delay: calc(50ms * var(--char-index));
+}
+
+@keyframes slide-in {
+    from {
+        transform: scale(0.4) translateY(80%);
+        opacity: 0;
+    }
+}
+
+@import 'blocks/preloader';
+@import 'blocks/title';
 @import 'blocks/overlay';
 @import 'blocks/promo';
 @import 'blocks/header';
 @import 'blocks/button';
-@import 'blocks/title';
 @import 'blocks/packs';
 @import 'blocks/pack';
 @import 'blocks/whitepapers';
@@ -46,13 +65,13 @@ body {
 @import 'blocks/road-map';
 @import 'blocks/footer';
 
-@import 'media/header';
-@import 'media/button';
-@import 'media/promo';
-@import 'media/title';
-@import 'media/pack';
-@import 'media/packs';
-@import 'media/whitepapers';
-@import 'media/history';
-@import 'media/road-map';
-@import 'media/footer';
+// @import 'media/header';
+// @import 'media/button';
+// @import 'media/promo';
+// @import 'media/title';
+// @import 'media/pack';
+// @import 'media/packs';
+// @import 'media/whitepapers';
+// @import 'media/history';
+// @import 'media/road-map';
+// @import 'media/footer';
