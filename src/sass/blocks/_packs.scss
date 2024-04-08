@@ -1,5 +1,5 @@
 .packs {
-    padding: 145px 0 240px;
+    padding: 0 0 240px;
     background: url(../img/packs_bgr.jpg) center (center/cover) no-repeat;
 
     &__wrapper {
@@ -21,6 +21,6 @@
 
 @media (max-width: 768px) {
     .packs {
-        padding: 100px 0;
+        padding: 0;
     }
 }

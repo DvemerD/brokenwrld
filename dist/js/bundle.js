@@ -1,29 +1,14 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.disableScroll = disableScroll;
-exports.enableScroll = enableScroll;
-function disableScroll() {
-  var scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-  document.body.style.paddingRight = scrollBarWidth + "px";
-  document.body.style.overflow = "hidden";
-}
-function enableScroll() {
-  document.body.style.paddingRight = "";
-  document.body.style.overflow = "auto";
-}
-"use strict";
-
 var _header = _interopRequireDefault(require("./blocks/header.js"));
 var _history = _interopRequireDefault(require("./blocks/history.js"));
-var _humburger = _interopRequireDefault(require("./blocks/humburger.js"));
+var _hamburger = _interopRequireDefault(require("./blocks/hamburger.js"));
 var _packs = _interopRequireDefault(require("./blocks/packs.js"));
 var _preloader = _interopRequireDefault(require("./blocks/preloader.js"));
 var _promo = _interopRequireDefault(require("./blocks/promo.js"));
 var _roadmap = _interopRequireDefault(require("./blocks/roadmap.js"));
 var _whitepapers = _interopRequireDefault(require("./blocks/whitepapers.js"));
+var _scrollToAnchor = _interopRequireDefault(require("./modules/scrollToAnchor.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 window.addEventListener("DOMContentLoaded", function () {
   var screenWidth = window.innerWidth;
@@ -41,8 +26,44 @@ window.addEventListener("DOMContentLoaded", function () {
     (0, _roadmap["default"])(tl);
   }
   (0, _preloader["default"])(tl);
-  (0, _humburger["default"])();
+  (0, _hamburger["default"])();
+  (0, _scrollToAnchor["default"])();
 });
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _helpers = require("../modules/helpers.js");
+function hamburger() {
+  var hamburgerBtn = document.querySelector(".hamburger"),
+    overlay = document.querySelector(".overlay"),
+    overlayBgr = document.querySelector(".overlay__bgr"),
+    menu = document.querySelector(".header__navigation"),
+    menuLink = document.querySelectorAll(".header__menu-link");
+  hamburgerBtn.addEventListener("click", function () {
+    hamburgerBtn.classList.toggle("hamburger_active");
+    overlay.classList.toggle("overlay_active");
+    overlayBgr.classList.toggle("overlay__bgr_active");
+    menu.classList.toggle("header__navigation_active");
+    if (hamburgerBtn.classList.contains("hamburger_active")) {
+      (0, _helpers.disableScroll)();
+    } else {
+      (0, _helpers.enableScroll)();
+    }
+  });
+  menuLink.forEach(function (item) {
+    item.addEventListener("click", function () {
+      hamburgerBtn.classList.remove("hamburger_active");
+      overlay.classList.remove("overlay_active");
+      overlayBgr.classList.remove("overlay__bgr_active");
+      menu.classList.remove("header__navigation_active");
+      (0, _helpers.enableScroll)();
+    });
+  });
+}
+var _default = exports["default"] = hamburger;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -148,31 +169,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-var _helpers = require("../helpers.js");
-function hamburger() {
-  var hamburgerBtn = document.querySelector(".hamburger"),
-    overlay = document.querySelector(".overlay"),
-    overlayBgr = document.querySelector(".overlay__bgr"),
-    menu = document.querySelector(".header__navigation");
-  hamburgerBtn.addEventListener("click", function () {
-    hamburgerBtn.classList.toggle("hamburger_active");
-    overlay.classList.toggle("overlay_active");
-    overlayBgr.classList.toggle("overlay__bgr_active");
-    menu.classList.toggle("header__navigation_active");
-    if (hamburgerBtn.classList.contains("hamburger_active")) {
-      (0, _helpers.disableScroll)();
-    } else {
-      (0, _helpers.enableScroll)();
-    }
-  });
-}
-var _default = exports["default"] = hamburger;
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
 function packs(tl) {
   gsap.from(".packs .title_section", {
     scrollTrigger: {
@@ -223,7 +219,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-var _helpers = require("../helpers.js");
+var _helpers = require("../modules/helpers.js");
 function preloader(tl) {
   var bar = document.getElementById("progress-confirm"),
     preloader = document.getElementById("preloader"),
@@ -633,3 +629,53 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
   var luxy = new Luxy();
   return luxy;
 });
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.disableScroll = disableScroll;
+exports.enableScroll = enableScroll;
+function disableScroll() {
+  var scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.paddingRight = scrollBarWidth + "px";
+  document.body.style.overflow = "hidden";
+}
+function enableScroll() {
+  document.body.style.paddingRight = "";
+  document.body.style.overflow = "auto";
+}
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+function scrollToAnchor() {
+  var links = document.querySelectorAll('[href^="#"]'),
+    speed = 0.3;
+  links.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      var widthTop = document.documentElement.scrollTop,
+        hash = this.hash,
+        toBlock = document.querySelector(hash).getBoundingClientRect().top,
+        start = null;
+      requestAnimationFrame(step);
+      function step(time) {
+        if (start === null) {
+          start = time;
+        }
+        var progress = time - start,
+          r = toBlock < 0 ? Math.max(widthTop - progress / speed, widthTop + toBlock) : Math.min(widthTop + progress / speed, widthTop + toBlock);
+        document.documentElement.scrollTo(0, r);
+        if (r != widthTop + toBlock) {
+          requestAnimationFrame(step);
+        } else {
+          location.hash = hash;
+        }
+      }
+    });
+  });
+}
+var _default = exports["default"] = scrollToAnchor;

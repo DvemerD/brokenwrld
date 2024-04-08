@@ -1,5 +1,5 @@
 .history {
-    padding: 200px 0 50px;
+    padding: 0 0 50px;
     background: url(../img/history_bgr.jpg) center (center/cover) no-repeat;
 
     &__wrapper {
@@ -85,8 +85,6 @@
 
 @media (max-width: 768px) {
     .history {
-        padding-top: 100px;
-
         &__img {
             display: none;
         }

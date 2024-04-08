@@ -1,5 +1,6 @@
 .promo {
   padding: 20px 0 60px;
+  margin-bottom: 145px;
   z-index: 3;
   height: 100vh;
   position: relative;
@@ -78,6 +79,8 @@
 
 @media (max-width: 768px) {
   .promo {
+    margin-bottom: 100px;
+
     &__subtitle {
       font-size: 20px;
       line-height: 24px;
